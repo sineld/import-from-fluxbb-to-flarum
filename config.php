@@ -9,7 +9,7 @@ ini_set('error_log', 'migrate.log');
 
 $timestampStart = microtime(true);
 
-$fluxbb = [
+$fluxbb = new Pdox([
     'host' => 'localhost',
     'driver' => 'mysql',
     'database' => 'fluxbb',
@@ -18,15 +18,15 @@ $fluxbb = [
     'charset' => 'utf8',
     'collation' => 'utf8_general_ci',
     'prefix' => '',
-];
+]);
 
-$flarum = [
+$flarum = new Pdox([
     'host' => 'localhost',
     'driver' => 'mysql',
-    'database' => 'forum',
+    'database' => 'flarum',
     'username' => 'homestead',
     'password' => 'secret',
     'charset' => 'utf8',
     'collation' => 'utf8_general_ci',
     'prefix' => '',
-];
+]);

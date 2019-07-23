@@ -1,12 +1,5 @@
 <?php
 
-// users start
-$flarum
-    ->query('SET FOREIGN_KEY_CHECKS=0;')
-    ->exec();
-
-echo 'Disabled Foreing Key Checks.'.PHP_EOL;
-
 $flarum
     ->query('TRUNCATE TABLE users;')
     ->exec();
@@ -43,10 +36,3 @@ foreach ($oldUsers as $user) {
 }
 
 echo 'Migrated '.$importedUsersCount.' users...'.PHP_EOL;
-
-$flarum
-    ->query('SET FOREIGN_KEY_CHECKS=1;')
-    ->exec();
-
-echo 'Enabled Foreing Key Checks.'.PHP_EOL;
-// users end
