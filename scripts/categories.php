@@ -21,7 +21,7 @@ foreach ($categories as $category) {
             'id' => $category->id,
             'name' => $category->cat_name,
             'slug' => sluggify($category->cat_name),
-            'color' => GetRandomColor(),
+            'color' => getRandomColor(),
             'position' => intval($category->disp_position),
         ]);
     ++$importedTagsCount;

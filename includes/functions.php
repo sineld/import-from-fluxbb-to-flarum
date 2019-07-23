@@ -27,7 +27,36 @@ function sluggify($value)
     return $value;
 }
 
-function GetRandomColor()
+function getRandomColor()
 {
     return '#'.str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+}
+
+function getUserId($username)
+{
+    global $fluxbb;
+
+    if (!preg_match('/^[a-zA-Z0-9-_]+$/', $username)) {
+        $username = sluggify($username);
+    }
+
+    $user = $fluxbb
+        ->select('id')
+        ->table('users')
+        ->where('username', $username)
+        ->get();
+
+    return $user ? $user->id : 2;
+}
+
+function dd($string)
+{
+    die(
+        var_dump($string)
+    );
+}
+
+function timestampToDatetime($time)
+{
+    return date('Y-m-d H:i:s', intval($time));
 }

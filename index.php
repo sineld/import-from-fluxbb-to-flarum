@@ -1,12 +1,15 @@
 <?php
 
+@system('clear');
 require 'includes/bootstrap.php';
 
-require 'scripts/users.php';
-require 'scripts/categories.php';
+// require 'scripts/users.php';
+// require 'scripts/categories.php';
+// require 'scripts/forums.php';
+require 'scripts/topics-posts.php';
 
 $flarum
-    ->query('SET FOREIGN_KEY_CHECKS=1;')
+    ->query('SET GLOBAL FOREIGN_KEY_CHECKS=0;')
     ->exec();
 
 echo 'Enabled Foreing Key Checks.'.PHP_EOL;

@@ -6,15 +6,15 @@ $flarum
 
 echo 'Truncated users of flarum.'.PHP_EOL;
 
-$oldUsers = $fluxbb
+$users = $fluxbb
     ->select('id, username, email, registered, last_visit, signature, num_posts')
     ->table('users')
     ->getAll();
 
-echo 'Migrating '.count($oldUsers).' users...'.PHP_EOL;
+echo 'Migrating '.count($users).' users...'.PHP_EOL;
 
 $importedUsersCount = 0;
-foreach ($oldUsers as $user) {
+foreach ($users as $user) {
     if ($user->username != 'Guest') {
         $flarum
             ->table('users')
