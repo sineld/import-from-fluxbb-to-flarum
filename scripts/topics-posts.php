@@ -49,7 +49,7 @@ foreach ($topics as $topic) {
             $content = preg_replace($match, '[img]/assets/images/smileys/'.$smiley[0].'[/img]', $content);
         }
 
-        $flarum2
+        $flarum
             ->table('posts')
             ->insert([
                 'id' => $post->id,

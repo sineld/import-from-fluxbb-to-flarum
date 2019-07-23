@@ -27,17 +27,6 @@ $flarum = new Pdox([
     'prefix' => '',
 ]);
 
-$flarum2 = new Pdox([
-    'host' => 'localhost',
-    'driver' => 'mysql',
-    'database' => 'flarum',
-    'username' => 'homestead',
-    'password' => 'secret',
-    'charset' => 'utf8',
-    'collation' => 'utf8_general_ci',
-    'prefix' => '',
-]);
-
 $smileys = [
     ['smile.png', ':)'],
     ['neutral.png', ':|'],

@@ -8,4 +8,4 @@ $flarum
     ->query('SET GLOBAL FOREIGN_KEY_CHECKS=0;')
     ->exec();
 
-echo 'Disabled Foreing Key Checks.'.PHP_EOL;
+echo 'Disabled Global Foreing Key Checks.'.PHP_EOL;
