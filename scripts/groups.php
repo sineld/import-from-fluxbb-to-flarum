@@ -32,7 +32,6 @@ foreach ($groups as $group) {
         $groupId = 2;
     }
 
-    // not yet
     $users = $fluxbb
         ->table('users')
         ->where('group_id', $group->g_id)

@@ -9,6 +9,7 @@ require 'scripts/categories.php';
 require 'scripts/forums.php';
 require 'scripts/topics-posts.php';
 require 'scripts/groups.php';
+require 'scripts/subscriptions.php';
 
 $flarum
     ->query('SET GLOBAL FOREIGN_KEY_CHECKS=1;')
