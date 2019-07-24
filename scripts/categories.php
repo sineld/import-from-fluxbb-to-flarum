@@ -1,10 +1,10 @@
 <?php
 
-$flarum
-    ->query('TRUNCATE TABLE tags;')
-    ->exec();
+// $flarum
+//     ->query('TRUNCATE TABLE tags;')
+//     ->exec();
 
-echo 'Truncated tags of flarum.'.PHP_EOL;
+// echo 'Truncated tags of flarum.'.PHP_EOL;
 
 $categories = $fluxbb
     ->select('id, cat_name, disp_position')

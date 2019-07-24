@@ -1,18 +1,18 @@
 <?php
 
-$flarum
-    ->query('DELETE FROM posts;')
-    ->exec();
+// $flarum
+//     ->query('DELETE FROM posts;')
+//     ->exec();
 
-$flarum
-    ->query('DELETE FROM discussion_tag;')
-    ->exec();
+// $flarum
+//     ->query('DELETE FROM discussion_tag;')
+//     ->exec();
 
-$flarum
-    ->query('DELETE FROM discussions;')
-    ->exec();
+// $flarum
+//     ->query('DELETE FROM discussions;')
+//     ->exec();
 
-echo 'Truncated posts of flarum.'.PHP_EOL;
+// echo 'Truncated posts of flarum.'.PHP_EOL;
 
 $topics = $fluxbb
     ->table('topics')

@@ -1,15 +1,15 @@
 <?php
 
-$flarum
-    ->query('TRUNCATE TABLE users;')
-    ->exec();
+// $flarum
+//     ->query('TRUNCATE TABLE users;')
+//     ->exec();
 
 // $flarum
 //     ->table('users')
 //     ->where('id', '>', 1)
 //     ->delete();
 
-echo 'Truncated users of flarum.'.PHP_EOL;
+// echo 'Truncated users of flarum.'.PHP_EOL;
 
 $users = $fluxbb
     ->select('id, username, email, registered, last_visit, signature, num_posts')
