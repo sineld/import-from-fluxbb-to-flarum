@@ -28,7 +28,7 @@ foreach ($users as $user) {
                 'username' => $user->username,
                 'email' => $user->email,
                 'is_email_confirmed' => 1,
-                'password' => bin2hex(random_bytes(20)),
+                'password' => '$2y$10$ZtFL1whjJKjh3dpW07H5De1TlwCjk9nvBiFa2UZfvotWO8hpbSadO',
                 'avatar_url' => null,
                 'joined_at' => timestampToDatetime($user->registered),
                 'last_seen_at' => timestampToDatetime($user->last_visit),
