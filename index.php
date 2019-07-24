@@ -1,5 +1,6 @@
 <?php
 
+$timestampStart = microtime(true);
 @system('clear');
 require 'includes/bootstrap.php';
 
@@ -7,6 +8,7 @@ require 'scripts/users.php';
 require 'scripts/categories.php';
 require 'scripts/forums.php';
 require 'scripts/topics-posts.php';
+require 'scripts/groups.php';
 
 $flarum
     ->query('SET GLOBAL FOREIGN_KEY_CHECKS=1;')

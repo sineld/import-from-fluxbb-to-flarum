@@ -21,6 +21,7 @@ $topics = $fluxbb
 echo 'Migrating '.count($topics).' posts...'.PHP_EOL;
 
 $importedPostsCount = 0;
+$importedDiscussionsCount = 0;
 foreach ($topics as $topic) {
     $totalPostsInDiscussion = (intval($topic->num_replies) + 1);
 
@@ -34,6 +35,7 @@ foreach ($topics as $topic) {
     $participantsList = [];
 
     foreach ($posts as $post) {
+        ++$importedPostsCount;
         ++$currentPostNumber;
         $userId = $post->poster_id;
 
@@ -100,7 +102,8 @@ foreach ($topics as $topic) {
             'tag_id' => $category->cat_id,
         ]);
 
-    ++$importedPostsCount;
+    ++$importedDiscussionsCount;
 }
 
 echo 'Migrated '.$importedPostsCount.' posts...'.PHP_EOL;
+echo 'Migrated '.$importedDiscussionsCount.' discussions...'.PHP_EOL;
