@@ -28,7 +28,7 @@ foreach ($users as $user) {
                 'joined_at' => timestampToDatetime($user->registered),
                 'last_seen_at' => timestampToDatetime($user->last_visit),
                 'bio' => $user->signature,
-                'comment_count' => $user->num_posts,
+                'comment_count' => 0,
                 'discussion_count' => 0,
             ]);
         ++$importedUsersCount;
