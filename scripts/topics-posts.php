@@ -1,5 +1,7 @@
 <?php
 
+use s9e\TextFormatter\Bundles\Forum as TextFormatter;
+
 // $flarum
 //     ->query('DELETE FROM posts;')
 //     ->exec();
@@ -50,6 +52,8 @@ foreach ($topics as $topic) {
             $match = '#(?<=\s|^)('.$quotedSmiley.')(?=\s|$)#';
             $content = preg_replace($match, '[img]/assets/images/smileys/'.$smiley[0].'[/img]', $content);
         }
+
+        $content = TextFormatter::parse(replaceUnsupportedMarks($content));
 
         $flarum
             ->table('posts')

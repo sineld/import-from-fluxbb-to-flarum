@@ -3,6 +3,7 @@
 $timestampStart = microtime(true);
 @system('clear');
 require 'includes/bootstrap.php';
+require_once 'vendor/autoload.php';
 
 $flarum
     ->query('SET GLOBAL FOREIGN_KEY_CHECKS=0;')

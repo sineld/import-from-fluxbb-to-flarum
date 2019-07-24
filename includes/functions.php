@@ -114,3 +114,23 @@ function convertFluxbbLinksToFlarum($text)
 
     return str_replace('http://forum.laravel.gen.tr', 'https://laravel.gen.tr', $text);
 }
+
+function replaceUnsupportedMarks($text)
+{
+    $q = '\[q]|\[\/q]';
+    $em = '\[em]|\[\/em]';
+    $ins = '\[ins]|\[\/ins]';
+    $sup = '\[sup]|\[\/sup]';
+    $sub = '\[sub]|\[\/sub]';
+    $video = '\[video]|\[\/video]';
+    $left = '\[left]|\[\/left]';
+    $right = '\[right]|\[\/right]';
+    $justify = '\[justify]|\[\/justify]';
+    $regex = "/$q|$em|$ins|$sup|$sub|$video|$left|$right|$justify/";
+
+    $text = preg_replace('#\[h](.+)\[\/h]#i', '[b][size=20]$1[/size][/b]', $text);
+    $text = preg_replace('/\[acronym=.+](.+)\[\/acronym]|\[acronym]|\[\/acronym]/', '$1', $text);
+    $text = preg_replace($regex, '', $text);
+
+    return $text;
+}

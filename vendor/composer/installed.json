@@ -1,0 +1,112 @@
+[
+    {
+        "name": "s9e/regexp-builder",
+        "version": "1.4.3",
+        "version_normalized": "1.4.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/s9e/RegexpBuilder.git",
+            "reference": "59d0167a909659d718f53964f7653d2c83a5f8fe"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/s9e/RegexpBuilder/zipball/59d0167a909659d718f53964f7653d2c83a5f8fe",
+            "reference": "59d0167a909659d718f53964f7653d2c83a5f8fe",
+            "shasum": ""
+        },
+        "require": {
+            "lib-pcre": ">=7.2",
+            "php": ">=5.5.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "<5.8"
+        },
+        "time": "2019-04-26T17:55:23+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "s9e\\RegexpBuilder\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Single-purpose library that generates regular expressions that match a list of strings.",
+        "homepage": "https://github.com/s9e/RegexpBuilder/",
+        "keywords": [
+            "regexp"
+        ]
+    },
+    {
+        "name": "s9e/text-formatter",
+        "version": "2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/s9e/TextFormatter.git",
+            "reference": "6902c1dc06fccea08565b8966c5a2cf01e3bc85f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/6902c1dc06fccea08565b8966c5a2cf01e3bc85f",
+            "reference": "6902c1dc06fccea08565b8966c5a2cf01e3bc85f",
+            "shasum": ""
+        },
+        "require": {
+            "ext-dom": "*",
+            "ext-filter": "*",
+            "lib-pcre": ">=8.13",
+            "php": ">=7.1",
+            "s9e/regexp-builder": "^1.4"
+        },
+        "require-dev": {
+            "matthiasmullie/minify": "*",
+            "phpunit/phpunit": "^7 || ^8.2"
+        },
+        "suggest": {
+            "ext-curl": "Improves the performance of the MediaEmbed plugin and some JavaScript minifiers",
+            "ext-intl": "Allows international URLs to be accepted by the URL filter",
+            "ext-json": "Enables the generation of a JavaScript parser",
+            "ext-mbstring": "Improves the performance of the PHP renderer",
+            "ext-tokenizer": "Improves the performance of the PHP renderer",
+            "ext-xsl": "Enables the XSLT renderer",
+            "ext-zlib": "Enables gzip compression when scraping content via the MediaEmbed plugin"
+        },
+        "time": "2019-07-24T10:59:43+00:00",
+        "type": "library",
+        "extra": {
+            "version": "2.1.0"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "s9e\\TextFormatter\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Multi-purpose text formatting and markup library. Plugins offer support for BBCodes, Markdown, emoticons, HTML, embedding media (YouTube, etc...), enhanced typography and more.",
+        "homepage": "https://github.com/s9e/TextFormatter/",
+        "keywords": [
+            "bbcode",
+            "bbcodes",
+            "blog",
+            "censor",
+            "embed",
+            "emoji",
+            "emoticons",
+            "engine",
+            "forum",
+            "html",
+            "markdown",
+            "markup",
+            "media",
+            "parser",
+            "shortcodes"
+        ]
+    }
+]
