@@ -60,3 +60,57 @@ function timestampToDatetime($time)
 {
     return date('Y-m-d H:i:s', intval($time));
 }
+
+function convertFluxbbLinksToFlarum($text)
+{
+    global $flarum, $fluxbb;
+
+    $text = preg_replace('/viewtopic\.php\?id=([0-9]+)&p=[0-9]+|viewtopic\.php\?id=([0-9]+)/', 'd/$1$2', $text);
+
+    $text = preg_replace('/profile\.php\?id=([0-9]+)/', 'u/$1', $text);
+
+    $text = preg_replace_callback(
+        '/viewtopic\.php\?pid=([0-9]+)#p[0-9]+|viewtopic\.php\?pid=([0-9]+)/',
+        function ($matches) use ($flarum) {
+            $pid = $matches[1] ?: $matches[0];
+
+            $post = $flarum
+                ->table('posts')
+                ->where('id', $pid)
+                ->get();
+
+            if (isset($post->discussion_id)) {
+                $discussionId = intval($post->discussion_id);
+                $number = intval($post->number);
+
+                return "d/$discussionId/$number";
+            }
+
+            return;
+        },
+        $text
+    );
+
+    $text = preg_replace_callback(
+        '/viewforum\.php\?id=([0-9]+)&p=[0-9]+|viewforum\.php\?id=([0-9]+)/',
+        function ($matches) use ($fluxbb) {
+            $id = $matches[1];
+            if (isset($matches[2])) {
+                $id = $matches[2];
+            }
+
+            $forum = $fluxbb
+                ->select('forum_name')
+                ->table('forums')
+                ->where('id', $id)
+                ->get();
+
+            $slug = sluggify($forum->forum_name);
+
+            return "t/$slug";
+        },
+        $text
+    );
+
+    return str_replace('http://forum.laravel.gen.tr', 'https://laravel.gen.tr', $text);
+}

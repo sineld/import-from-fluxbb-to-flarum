@@ -25,6 +25,8 @@ $flarum = new Pdox([
     'prefix' => '',
 ]);
 
+$flarum2 = clone $flarum;
+
 $smileys = [
     ['smile.png', ':)'],
     ['neutral.png', ':|'],

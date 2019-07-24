@@ -8,6 +8,16 @@ $flarum
     ->query('DELETE FROM groups;')
     ->exec();
 
+// $flarum
+//     ->table('group_user')
+//     ->where('user_id', '>', 1)
+//     ->delete();
+
+// $flarum
+//     ->table('groups')
+//     ->where('id', '>', 4)
+//     ->delete();
+
 echo 'Truncated groups of flarum.'.PHP_EOL;
 
 $groups = $fluxbb
@@ -22,10 +32,10 @@ foreach ($groups as $group) {
     $icon = null;
 
     if ($groupId == 1) {
-        $icon = 'wrench';
+        $icon = 'fas fa-wrench';
     } elseif ($groupId == 2) {
         $groupId = 4;
-        $icon = 'bolt';
+        $icon = 'fas fa-bolt';
     } elseif ($groupId == 4) {
         $groupId = 3;
     } elseif ($groupId == 3) {
