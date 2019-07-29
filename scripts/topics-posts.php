@@ -6,6 +6,10 @@ $topics = $fluxbb
     ->table('topics')
     ->getAll();
 
+$categories = $fluxbb
+    ->table('categories')
+    ->getAll();
+
 echo 'Migrating '.count($topics).' posts...'.PHP_EOL;
 
 $importedPostsCount = 0;
@@ -104,7 +108,7 @@ foreach ($topics as $topic) {
     $relation2 = $flarum
         ->table('discussion_tag')
         ->where('discussion_id', $topic->id)
-        ->where('tag_id', 3 + $topic->forum_id)
+        ->where('tag_id', count($categories) + $topic->forum_id)
         ->get();
 
     if (!$relation2) {
@@ -112,7 +116,7 @@ foreach ($topics as $topic) {
             ->table('discussion_tag')
             ->insert([
                 'discussion_id' => $topic->id,
-                'tag_id' => 3 + $topic->forum_id,
+                'tag_id' => count($categories) + $topic->forum_id,
             ]);
     }
 

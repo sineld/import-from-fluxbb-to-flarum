@@ -1,7 +1,6 @@
 <?php
 
 $categories = $fluxbb
-    ->select('id, cat_name, disp_position')
     ->table('categories')
     ->getAll();
 
