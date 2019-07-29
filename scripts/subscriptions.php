@@ -1,11 +1,5 @@
 <?php
 
-// $flarum
-//     ->query('DELETE FROM discussion_user;')
-//     ->exec();
-
-// echo 'Truncated subscriptions of flarum.'.PHP_EOL;
-
 $subscriptions = $fluxbb
     ->table('topic_subscriptions')
     ->getAll();

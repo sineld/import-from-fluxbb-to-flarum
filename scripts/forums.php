@@ -1,8 +1,8 @@
 <?php
 
 $forums = $fluxbb
-    ->select('id, forum_name, forum_desc, disp_position, cat_id')
     ->table('forums')
+    ->orderBy('id')
     ->getAll();
 
 echo 'Migrating '.count($forums).' tags...'.PHP_EOL;

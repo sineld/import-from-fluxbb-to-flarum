@@ -2,20 +2,6 @@
 
 use s9e\TextFormatter\Bundles\Forum as TextFormatter;
 
-// $flarum
-//     ->query('DELETE FROM posts;')
-//     ->exec();
-
-// $flarum
-//     ->query('DELETE FROM discussion_tag;')
-//     ->exec();
-
-// $flarum
-//     ->query('DELETE FROM discussions;')
-//     ->exec();
-
-// echo 'Truncated posts of flarum.'.PHP_EOL;
-
 $topics = $fluxbb
     ->table('topics')
     ->getAll();
@@ -99,12 +85,36 @@ foreach ($topics as $topic) {
             ->where('id', $topic->forum_id)
             ->get();
 
-    $flarum
+    // attach all tags
+    $relation1 = $flarum
         ->table('discussion_tag')
-        ->insert([
-            'discussion_id' => $topic->id,
-            'tag_id' => $category->cat_id,
-        ]);
+        ->where('discussion_id', $topic->id)
+        ->where('tag_id', $category->cat_id)
+        ->get();
+
+    if (!$relation1) {
+        $flarum
+            ->table('discussion_tag')
+            ->insert([
+                'discussion_id' => $topic->id,
+                'tag_id' => $category->cat_id,
+            ]);
+    }
+
+    $relation2 = $flarum
+        ->table('discussion_tag')
+        ->where('discussion_id', $topic->id)
+        ->where('tag_id', 3 + $topic->forum_id)
+        ->get();
+
+    if (!$relation2) {
+        $flarum
+            ->table('discussion_tag')
+            ->insert([
+                'discussion_id' => $topic->id,
+                'tag_id' => 3 + $topic->forum_id,
+            ]);
+    }
 
     ++$importedDiscussionsCount;
 }

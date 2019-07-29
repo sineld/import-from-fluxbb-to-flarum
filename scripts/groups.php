@@ -1,25 +1,5 @@
 <?php
 
-// $flarum
-//     ->query('DELETE FROM group_user;')
-//     ->exec();
-
-// $flarum
-//     ->query('DELETE FROM groups;')
-//     ->exec();
-
-// $flarum
-//     ->table('group_user')
-//     ->where('user_id', '>', 1)
-//     ->delete();
-
-// $flarum
-//     ->table('groups')
-//     ->where('id', '>', 4)
-//     ->delete();
-
-// echo 'Truncated groups of flarum.'.PHP_EOL;
-
 $groups = $fluxbb
     ->table('groups')
     ->getAll();
