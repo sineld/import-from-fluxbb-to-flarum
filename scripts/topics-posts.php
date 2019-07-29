@@ -81,6 +81,7 @@ foreach ($topics as $topic) {
             'is_approved' => 1,
             'is_locked' => intval($topic->closed),
             'is_sticky' => intval($topic->sticky),
+            'best_answer_notified' => 0,
         ]);
 
     $category = $fluxbb
